@@ -25,5 +25,6 @@ urlpatterns = [
     path('studenthome/doubts',views.doubts),
     path('studenthome/answers',views.answers),
     path('studenthome/contact',views.contact),
-    path('logout',views.logout)
+    path('logout',views.logout),
+    path('studenthome/doubts/submit',views.doubtsubmit)
 ]

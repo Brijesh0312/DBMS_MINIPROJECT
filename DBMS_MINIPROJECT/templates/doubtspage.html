@@ -102,9 +102,10 @@
 
     <form
       class="form"
-      action="/student/studentPage/doubtSubmitted"
+      action="doubts/submit"
       method="POST"
     >
+       {% csrf_token %}
       <h4>Enter your question here:</h4>
       <input
         type="text"

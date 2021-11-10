@@ -21,3 +21,6 @@ def contact(request):
 
 def logout(request):
     return render(request,'LoggedOut.html')
+
+def doubtsubmit(request):
+    return render(request,'doubtSubmitted.html')
