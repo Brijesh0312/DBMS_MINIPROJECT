@@ -96,13 +96,13 @@
 
     <p class="fs-1">Student Login Page</p>
 
-    <form class="form" action="/studenthome" method="POST">
+    <form class="form" action="StudentLogin2" method="POST">
       {%csrf_token%}
       <p class="fs-5">Enter Email</p>
       <input
         type="text"
         id="email"
-        name="username"
+        name="user"
         placeholder="Enter Username"
       />
       <br />
@@ -121,7 +121,7 @@
 
     <br />
     <br />
-
+{%if passcheck %}
     <style>
       .alert {
         position: absolute;
@@ -132,6 +132,10 @@
         opacity: 1;
       }
     </style>
+    <div class="alert alert-danger" role="alert">
+      Wrong Credendials!
+    </div>
+{%endif%}
 <!--    <div class="alert alert-danger" role="alert">Wrong Credencials!</div>-->
 
     <!-- Optional JavaScript; choose one of the two! -->

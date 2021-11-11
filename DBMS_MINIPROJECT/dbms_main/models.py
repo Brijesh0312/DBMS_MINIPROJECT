@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class student_profile(models.Model):
     stud_id= models.AutoField( primary_key=True)
+    password=models.CharField(max_length=20,default='')
     name=  models.CharField(max_length=30,)
     section=models.IntegerField()
     roll_no=models.IntegerField()

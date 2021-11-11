@@ -1,9 +1,31 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
 from dbms_main.models import question
+from dbms_main.models import student_profile
 
+currStudentLoggedIn=None
 def index(request):
+
     return render(request,'StudentLoginPage.html')
+
+def studentLogin(request):
+    global currStudentLoggedIn
+    name = request.POST['user']
+    password = request.POST['pass']
+    flag = False
+    lst = student_profile.objects.all()
+    for i in lst:
+        if (i.name == name and i.password == password):
+            currStudentLoggedIn = i
+            flag = True
+    flag1 = not flag
+    params = {'passcheck': flag1, 'currStudentLogged': currStudentLoggedIn}
+    if (flag):
+        return HttpResponseRedirect('studenthome')
+    else:
+        return render(request, 'StudentLoginPage.html', params)
+
 
 def home(request):
     return render(request,'studentPage.html')
