@@ -11,6 +11,7 @@ def index(request):
 
 def studentLogin(request):
     global currStudentLoggedIn
+    print("hello")
     name = request.POST['user']
     password = request.POST['pass']
     flag = False
@@ -47,10 +48,13 @@ def logout(request):
 
 def doubtsubmit(request):
     if request.method == 'POST':
-        que=request.POST['disc']
-        depart=request.POST['department']
-        sub=request.POST['subject']
-        print(depart)
-        print(sub)
+        if currStudentLoggedIn:
+            que=request.POST['disc']
+            depart=request.POST['department']
+            sub=request.POST['subject']
+            ques=question(description=que,department=depart,subject=sub,stud_id=currStudentLoggedIn)
+            ques.save()
 
-    return render(request,'doubtspage.html')
+            return render(request,'doubtSubmitted.html')
+        return HttpResponseRedirect('StudentLogin')
+    return HttpResponseRedirect('StudentLogin')
