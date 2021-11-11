@@ -106,15 +106,29 @@
       method="POST"
     >
        {% csrf_token %}
-      <h4>Enter your question here:</h4>
-      <input
-        type="text"
-        id="question"
-        name="question"
-        placeholder="Enter the question"
-      />
+      <h4>Select the department:</h4>
+      <select name="department" id="cars">
+
+        <option value="volvo">Computer Department</option>
+        <option value="saab">Information Technology</option>
+        <option value="mercedes">Electronics and Telecommunication</option>
+
+      </select>
       <br />
       <br />
+      <h4>Select Subject</h4>
+
+      <select name="subject" >
+        <option value="Discrete Mathematics">Discrete Mathematics</option>
+        <option value="Digital Electronics<">Digital Electronics</option>
+        <option value="Microprocessor">Microprocessor</option>
+        <option value="OOP">OOP</option>
+        <option value="Database Management">Database Management</option>
+        <option value="System programming and operating system">System programming and operating system</option>
+
+
+      </select>
+
       <h4>Describe your Question</h4>
       <textarea
         type="text"
@@ -124,10 +138,7 @@
       ></textarea>
       <br />
       <br />
-      <h4>Upload Image</h4>
-      <input type="file" id="img" name="img" accept="image/*" />
-      <br />
-      <br />
+
 
       <input type="submit" value="Submit" />
     </form>
