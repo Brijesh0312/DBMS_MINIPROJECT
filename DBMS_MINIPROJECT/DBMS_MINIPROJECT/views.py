@@ -32,7 +32,8 @@ def home(request):
     return render(request,'studentPage.html')
 
 def profile(request):
-    return render(request,'profilepage.html')
+
+    return render(request,'profilepage.html',{'curr':currStudentLoggedIn})
 
 def doubts(request):
     return render(request,'doubtspage.html')
