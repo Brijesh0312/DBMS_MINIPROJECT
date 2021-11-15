@@ -57,7 +57,7 @@ def teacherlogin(request):
 def teacherhome(request):
     return render(request,'teacherhome.html')
 def teacherprofile(request):
-    return render(request,'techerprofilepage.html')
+    return render(request,'techerprofilepage.html',{'curr1' :currTeacherLoggedIn})
 def teacherquestion(request):
     return render(request,'Answeringpage.html')
 def teacheranswered(request):
