@@ -34,5 +34,6 @@ urlpatterns = [
     path('TeacherHome/question',views.teacherquestion),
     path('TeacherHome/answered',views.teacheranswered),
     path('TeacherHome/contact',views.teachercontact),
-    path('TeacherLogout',views.teacherLogout)
+    path('TeacherLogout',views.teacherLogout),
+    path('TeacherLogin1',views.teacherindex)
 ]

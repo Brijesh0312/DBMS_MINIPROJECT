@@ -3,8 +3,10 @@ from django.shortcuts import render
 from django.http.response import HttpResponseRedirect
 from dbms_main.models import question
 from dbms_main.models import student_profile
+from dbms_main.models import teacher_profile
 
 currStudentLoggedIn=None
+currTeacherLoggedIn=None
 def index(request):
 
     return render(request,'StudentLoginPage.html')
@@ -31,8 +33,26 @@ def studentLogin(request):
 def home(request):
     return render(request,'studentPage.html')
 
+def teacherindex(request):
+    return render(request,'index.html')
 def teacherlogin(request):
-    return render(request, 'index.html')
+    global currTeacherLoggedIn
+    print("hello")
+    name = request.POST['username']
+    password = request.POST['pass']
+    flag = False
+    lst = teacher_profile.objects.all()
+    for i in lst:
+        if (i.name == name and i.password == password):
+            currTeacherLoggedIn = i
+            flag = True
+    flag1 = not flag
+    params = {'passcheck': flag1, 'currTeacherLogged': currTeacherLoggedIn}
+    if (flag):
+        return HttpResponseRedirect('TeacherHome')
+    else:
+        return render(request, 'index.html', params)
+    # return render(request, 'index.html')
 
 def teacherhome(request):
     return render(request,'teacherhome.html')

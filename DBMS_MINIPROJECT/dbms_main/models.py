@@ -10,6 +10,7 @@ class student_profile(models.Model):
     email= models.EmailField(max_length = 254)
 class teacher_profile(models.Model):
     teacher_id=models.AutoField( primary_key=True)
+    password = models.CharField(max_length=20, default='')
     name=models.CharField(max_length=30)
     designation=models.CharField(max_length=30)
     department=models.CharField(max_length=30)
