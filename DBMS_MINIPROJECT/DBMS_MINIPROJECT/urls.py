@@ -27,5 +27,12 @@ urlpatterns = [
     path('studenthome/answers',views.answers),
     path('studenthome/contact',views.contact),
     path('logout',views.logout),
-    path('studenthome/doubts/submit',views.doubtsubmit)
+    path('studenthome/doubts/submit',views.doubtsubmit),
+    path('TeacherLogin',views.teacherlogin),
+    path('TeacherHome',views.teacherhome),
+    path('TeacherHome/profiles',views.teacherprofile),
+    path('TeacherHome/question',views.teacherquestion),
+    path('TeacherHome/answered',views.teacheranswered),
+    path('TeacherHome/contact',views.teachercontact),
+    path('TeacherLogout',views.teacherLogout)
 ]

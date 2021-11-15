@@ -31,6 +31,21 @@ def studentLogin(request):
 def home(request):
     return render(request,'studentPage.html')
 
+def teacherlogin(request):
+    return render(request, 'index.html')
+
+def teacherhome(request):
+    return render(request,'teacherhome.html')
+def teacherprofile(request):
+    return render(request,'techerprofilepage.html')
+def teacherquestion(request):
+    return render(request,'Answeringpage.html')
+def teacheranswered(request):
+    return render(request,'Answersubmitted.html')
+def teachercontact(request):
+    return render(request,'Contactpage.html')
+def teacherLogout(request):
+    return render(request,'teacherloggedout.html')
 def profile(request):
 
     return render(request,'profilepage.html',{'curr':currStudentLoggedIn})
