@@ -97,6 +97,7 @@
     <div class="vh"></div>
 
     <div style="align-self: center">
+      {%  for que in quo %}
       <form
         onsubmit="return confirm('Are you sure you want to submit this answer?'); "
         action="../TeacherHome/answered"
@@ -105,11 +106,13 @@
         {%csrf_token%}
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Question: {{entry.Question}}</h5>
+            <h5 class="card-title">Question: {{que.description}}</h5>
             <p class="card-text">{{entry.desc}}</p>
+            <input  type="hidden" name="op" value={{que.qid}} >
+
             <textarea
               type="text"
-              id="questionDisc"
+
               placeholder="Enter your answer over here"
               name="finalanswer"
             ></textarea>
@@ -127,6 +130,9 @@
         </div>
         <br />
       </form>
+
+   {% endfor %}
+
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

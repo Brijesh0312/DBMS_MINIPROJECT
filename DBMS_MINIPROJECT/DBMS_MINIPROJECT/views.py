@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http.response import HttpResponseRedirect
 from dbms_main.models import question
+from dbms_main.models import answer
 from dbms_main.models import student_profile
 from dbms_main.models import teacher_profile
 
@@ -59,9 +60,18 @@ def teacherhome(request):
 def teacherprofile(request):
     return render(request,'techerprofilepage.html',{'curr1' :currTeacherLoggedIn})
 def teacherquestion(request):
-    return render(request,'Answeringpage.html')
+    que=question.objects.filter(subject=currTeacherLoggedIn.subject)
+    print(que)
+    print(currTeacherLoggedIn.subject)
+    return render(request,'Answeringpage.html',{'quo':que})
 def teacheranswered(request):
-    return render(request,'Answersubmitted.html')
+    if request.method == 'POST':
+        qid=question.objects.get(pk=request.POST['op'])
+        ans=request.POST['finalanswer']
+        an=answer(qid=qid, description=ans,solve_by=currTeacherLoggedIn)
+        an.save()
+
+        return render(request,'Answersubmitted.html')
 def teachercontact(request):
     return render(request,'Contactpage.html')
 def teacherLogout(request):
