@@ -81,10 +81,13 @@ def profile(request):
     return render(request,'profilepage.html',{'curr':currStudentLoggedIn})
 
 def doubts(request):
+
     return render(request,'doubtspage.html')
 
 def answers(request):
-    return render(request,'ShowAnswerspage.html')
+    ans = answer.objects.all()
+    print(ans)
+    return render(request,'ShowAnswerspage.html',{'ans':ans})
 
 def contact(request):
     return  render(request,'contactsPage.html')

@@ -118,20 +118,23 @@
       <h2 id="goBack">< go back to home</h2>
       <div class="line1"></div>
     </div>
-
+     {% for i in ans %}
     <div style="align-self: center">
       <form action="questionpage/AnsweringPage" method="get">
         <div class="card">
+
           <div class="card-body">
-            <h5 class="card-title">Question:</h5>
+            <h5 class="card-title">Question:{{i.qid.description}}</h5>
             <p class="card-text"></p>
-            <h5 class="card-title">Answer is:</h5>
+            <h5 class="card-title">Answer is:{{i.description}}</h5>
             <p class="card-text"></p>
           </div>
+
         </div>
         <br />
       </form>
     </div>
+    {% endfor %}
 
     <script>
       document.getElementById("goBack").onclick = function () {
